@@ -1,20 +1,15 @@
-(function() {
+(function () {
     'use strict';
 
     angular
         .module('app.menu')
-        .run(routeConfig);
+        .config(routerHelperProvider);
 
-    routeConfig.$inject = ['routerHelper'];
+    routerHelperProvider.$inject = ['$locationProvider', '$stateProvider', '$urlRouterProvider'];
 
-    function routeConfig(routerHelper) {
-        routerHelper.configureStates(getStates());
-    }
-
-    function getStates() {
-        return [{
-            state: 'menu',
-            config: {
+    function routerHelperProvider($locationProvider, $stateProvider, $urlRouterProvider) {
+        $stateProvider
+            .state('menu', {
                 url: '/menu',
                 templateUrl: 'app/menu/_menu.html',
                 controller: 'menuCtrl',
@@ -26,9 +21,7 @@
                         squash: false
                     }
                 }
-            }
-        }];
+            })
     }
-
 })();
 

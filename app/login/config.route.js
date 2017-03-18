@@ -1,28 +1,20 @@
-(function() {
+(function () {
     'use strict';
 
     angular
         .module('app.login')
-        .run(routeConfig);
+        .config( routerHelperProvider);
 
-    routeConfig.$inject = ['routerHelper'];
+    routerHelperProvider.$inject = ['$locationProvider', '$stateProvider', '$urlRouterProvider'];
 
-    function routeConfig(routerHelper) {
-        routerHelper.configureStates(getStates());
-    }
-
-    function getStates() {
-        return [{
-            state: 'login',
-            config: {
+    function routerHelperProvider($locationProvider, $stateProvider, $urlRouterProvider) {
+        $stateProvider
+            .state('login', {
                 url: '/',
                 templateUrl: 'app/login/_login.html',
                 controller: 'loginCtrl',
                 controllerAs: 'vm',
                 title: 'Login'
-            }
-        }];
+            })
     }
-
 })();
-
