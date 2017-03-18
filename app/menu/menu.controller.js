@@ -21,7 +21,7 @@
         }
 
         vm.saveItem = function (_newItem, _categoury) {
-            _categoury.items.push(_newItem);
+            menuSrv.saveItem(_newItem, _categoury)
             vm.showAddItemForm = false;
             vm.newItem = {};
         }

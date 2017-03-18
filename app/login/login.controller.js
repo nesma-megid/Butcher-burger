@@ -1,4 +1,4 @@
-(function() {
+(function () {
     'use strict';
 
     angular
@@ -11,27 +11,16 @@
         var vm = this;
         var users = [];
 
-        loginSrv.getUsers().then(function (_users) {
-            users =_users;
-        });
-
         vm.login = function (_username) {
-            var role = undefined;
-            if (users.length > 0) {
-                users.map( function getRole (user) {
-                    if (user.username === _username) {
-                        role = user.role;
-                    }
-                })
-
-                if (role) {
-                    $state.go('menu', { role: role })
+            loginSrv.getUserRole(_username).then(function (_role) {
+                if (_role) {
+                    $state.go('menu', { role: _role })
                 } else {
                     vm.undefinedUser = true;
                     vm.user.username = '';
                     vm.user.password = '';
                 }
-            }
+            });
         };
 
     }

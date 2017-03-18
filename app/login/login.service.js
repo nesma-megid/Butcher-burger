@@ -10,15 +10,22 @@
 
     function loginSrv($http) {
         return {
-            getUsers: getUsers,
+            getUserRole: getUserRole,
         };
 
-        function getUsers() {
-            var users;
+        function getUserRole(_username) {
+            var role;
             return $http.get('data/users.json')
                 .then(function (response) {
-                    users = response.data.users;
-                    return users;
+                    var users = response.data.users;
+                    if (users.length > 0) {
+                        users.map(function getRole(user) {
+                            if (user.username === _username) {
+                                role = user.role;
+                            }
+                        })
+                    }
+                    return role;
                 })
         }
     }

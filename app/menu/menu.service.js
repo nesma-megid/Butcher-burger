@@ -11,6 +11,7 @@
     function menuSrv($http) {
         return {
             getMenu: getMenu,
+            saveItem: saveItem
         };
 
         function getMenu() {
@@ -20,6 +21,10 @@
                     menu = response.data.categories;
                     return menu;
                 })
+        }
+
+        function saveItem (_item, _categoury) {
+            _categoury.items.push(_item);
         }
     }
 
