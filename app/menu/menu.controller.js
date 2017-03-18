@@ -30,6 +30,27 @@
             vm.showAddItemForm = false;
             vm.newItem = {};
         }
+
+        vm.editItem = function (_item) {
+            vm.tempItem = {
+                name: _item.name,
+                price: _item.price,
+                description: _item.description
+            };
+            _item.showEditItemForm = true;
+        }
+
+        vm.doneEdit = function (_item) {
+            vm.tempItem = {};
+            _item.showEditItemForm = false;
+        }
+
+        vm.cancelEdit = function (_item) {
+            _item.name = vm.tempItem.name;
+            _item.price = vm.tempItem.price;
+            _item.description = vm.tempItem.description;
+            _item.showEditItemForm = false;
+        }
     }
 })();
 

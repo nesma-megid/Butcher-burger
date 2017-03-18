@@ -13,3 +13,23 @@ body {
 .login .md-raised{
     float: right;
 }
+
+.error-text{
+    color: #D32F2F;
+}
+
+md-list-item.md-3-line .md-list-item-text h3.item-name,
+ md-list-item.md-3-line > .md-no-style .md-list-item-text h3.item-name {
+     color: #FFAB40;
+     font-size: 20px;
+ }
+
+md-list-item.md-3-line .md-list-item-text h4.item-price,
+ md-list-item.md-3-line > .md-no-style .md-list-item-text h4.item-price {
+     font-weight: bold;
+ }
+
+ .text-right {
+     border-bottom: 1px solid #CCC;
+        padding-bottom: 20px;
+ }

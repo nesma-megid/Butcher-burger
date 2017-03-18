@@ -3,7 +3,7 @@
         <div class="col-md-6 col-md-offset-3">
             <div class="panel panel-default login">
                 <div class="panel-body">
-                    <div ng-if="vm.undefinedUser">Please enter correct username</div>
+                    <div ng-if="vm.undefinedUser" class="error-text">Please enter correct username</div>
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Username</label>
                         <input ng-model="vm.user.username">
