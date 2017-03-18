@@ -21,11 +21,9 @@
         }
 
         vm.saveItem = function (_newItem, _categoury) {
-            if (_newItem) {
-                _categoury.items.push(_newItem);
-                vm.showAddItemForm = false;
-                vm.newItem = {};
-            }
+            _categoury.items.push(_newItem);
+            vm.showAddItemForm = false;
+            vm.newItem = {};
         }
 
         vm.cancel = function () {

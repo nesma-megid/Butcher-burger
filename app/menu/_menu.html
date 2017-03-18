@@ -14,12 +14,12 @@
 
                                     <div ng-if="vm.showAddItemForm">
                                         <md-input-container class="md-block" flex-gt-sm>
-                                            <label>Name</label>
+                                            <label>Name*</label>
                                             <input ng-model="vm.newItem.name">
                                         </md-input-container>
 
                                         <md-input-container class="md-block">
-                                            <label>Price</label>
+                                            <label>Price*</label>
                                             <input ng-model="vm.newItem.price">
                                         </md-input-container>
 
@@ -27,7 +27,7 @@
                                             <label>Description</label>
                                             <input ng-model="vm.newItem.description">
                                         </md-input-container>
-                                        <md-button class="md-raised" ng-click="vm.saveItem(vm.newItem, categoury)">Save</md-button>
+                                        <md-button class="md-raised" ng-disabled="!vm.newItem.name || !vm.newItem.price" ng-click="vm.saveItem(vm.newItem, categoury)">Save</md-button>
                                         <md-button class="md-raised md-warn" ng-click="vm.cancel()">Cancel</md-button>
                                     </div>
 
