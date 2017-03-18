@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div ng-cloak>
+                <md-content>
+                    <md-tabs md-dynamic-height md-border-bottom>
+                        <md-tab label="{{categoury.name}}" ng-repeat="categoury in vm.menu">
+                            <md-content class="md-padding">
+                                <h1 class="md-display-2">{{categoury.name}}</h1>
+                                <div class="well">
+                                    <div class="text-right" ng-if="vm.role === vm.admin">
+                                        <md-button class="md-raised md-primary" ng-click="vm.addItem()">Add Item</md-button>
+                                    </div>
+
+                                    <div ng-if="vm.showAddItemForm">
+                                        <md-input-container class="md-block" flex-gt-sm>
+                                            <label>Name</label>
+                                            <input ng-model="vm.newItem.name">
+                                        </md-input-container>
+
+                                        <md-input-container class="md-block">
+                                            <label>Price</label>
+                                            <input ng-model="vm.newItem.price">
+                                        </md-input-container>
+
+                                        <md-input-container class="md-block">
+                                            <label>Description</label>
+                                            <input ng-model="vm.newItem.description">
+                                        </md-input-container>
+                                        <md-button class="md-raised" ng-click="vm.saveItem(vm.newItem, categoury)">Save</md-button>
+                                        <md-button class="md-raised md-warn" ng-click="vm.cancel()">Cancel</md-button>
+                                    </div>
+
+                                    <div ng-repeat="item in categoury.items">
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <span class="pull-right" ng-if="item.price">{{item.price}} EGP</span>
+                                                <h4>{{item.name}}</h4>
+                                                <p ng-if="item.description">{{item.description}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </md-content>
+                        </md-tab>
+                    </md-tabs>
+                </md-content>
+            </div>
+        </div>
+    </div>
+</div>
